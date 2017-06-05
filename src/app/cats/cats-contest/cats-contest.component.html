@@ -1,0 +1,4 @@
+<div class="row">
+  <app-cat-item *ngFor='let cat of cats' [catUrl]="cat['image']['url']" [catId]="cat['id']"
+                (catVoted)="reloadCats($event)" [votable]=true [rating]="cat['rating']"></app-cat-item>
+</div>

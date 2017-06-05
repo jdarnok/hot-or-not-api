@@ -1,0 +1,12 @@
+<div class="col-xs-6">
+  <div class="row">
+    <img class="img-responsive" src="{{catUrl}}">
+  </div>
+  <div class="row" [hidden]="!votable">
+    <button class="btn btn-default" (click)="vote(catId)">Vote for this lovely cat!</button>
+  </div>
+  <div class="row text-center" [hidden]="votable">
+    {{rating}}
+  </div>
+</div>
+
