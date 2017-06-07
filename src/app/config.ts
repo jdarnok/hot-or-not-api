@@ -2,7 +2,7 @@ export class Config {
   apiUrl : string;
 
   constructor() {
-    this.apiUrl = 'http://localhost:3000'
+    this.apiUrl = 'https://radiant-beach-93427.herokuapp.com'
   }
 
 }

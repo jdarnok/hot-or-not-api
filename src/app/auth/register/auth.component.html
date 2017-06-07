@@ -1,4 +1,8 @@
 <form  (ngSubmit)="submit(user)">
+  <div class="alert alert-danger" [hidden]="!hasErrors">
+    <strong>Error!</strong>
+    <p *ngFor="let error of errorMsgArray">{{error}}</p>
+  </div>
   <div class="form-group">
     <label for="email">Email address</label>
     <input type="email" class="form-control"  [(ngModel)]="user.email" id="email" name="email" placeholder="Email">

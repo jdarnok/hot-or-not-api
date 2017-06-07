@@ -12,22 +12,31 @@ import {User} from "../../user";
 export class AuthComponent implements OnInit {
   user:User;
   isLogging:boolean;
+  hasErrors:boolean;
+  errorMsgArray:string[];
 
-  constructor(private authService:AuthService, private router:Router, private _tokenService:Angular2TokenService) {
+  constructor(private router:Router, private _tokenService:Angular2TokenService) {
     this.user = new User();
     this.isLogging = true;
   }
 
   ngOnInit() {
+    if (this._tokenService.userSignedIn()) {
+    }
   }
 
   submit(user:User) {
     if (this.isLogging) {
       this._tokenService.signIn(user)
         .subscribe(
-          (response) => {
-            console.log(response)
+          () => {
+            this.hasErrors = false;
             this.router.navigate(['cats'])
+          },
+          (response) => {
+            this.hasErrors = true;
+            this.errorMsgArray = response.json()['errors']
+
           }
         )
 
@@ -39,13 +48,13 @@ export class AuthComponent implements OnInit {
         }
         )
         .subscribe(
-          (response) => {
-            console.log(response)
-
+          () => {
+            this.hasErrors = false;
             this.router.navigate(['cats'])
           },
           (response) => {
-            console.log('error', response)
+            this.hasErrors = true;
+            this.errorMsgArray = response.json()['errors']
           }
         )
     }

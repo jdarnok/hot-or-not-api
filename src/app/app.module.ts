@@ -34,7 +34,7 @@ import { CatsListComponent } from './cats/cats-list/cats-list.component';
     routes,
     A2tUiModule
   ],
-  providers: [AuthService, Config, CatsService, Angular2TokenService],
+  providers: [AuthService, Config, CatsService, Angular2TokenService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

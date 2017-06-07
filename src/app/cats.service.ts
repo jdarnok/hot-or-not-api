@@ -1,8 +1,5 @@
 import { Injectable } from "@angular/core";
 import { Http, Headers, Response, RequestMethod } from "@angular/http";
-import { Observable } from "rxjs/Rx";
-import "rxjs/add/operator/do";
-import "rxjs/add/operator/map";
 import { User } from "./user";
 import { Config } from "./config";
 import {Angular2TokenService} from "angular2-token/angular2-token";
@@ -32,8 +29,4 @@ export class CatsService {
 
   }
 
-  handleErrors(error:Response) {
-    console.log(JSON.stringify(error.json()));
-    return Observable.throw(error);
-  }
 }
